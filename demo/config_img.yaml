@@ -1,0 +1,21 @@
+det_config: "demo/mmdetection_cfg/faster_rcnn_r50_fpn_coco.py"
+det_checkpoint: "~/.cache/torch/hub/checkpoints/faster_rcnn_r50_fpn_1x_coco_20200130-047c8118.pth"
+pose_lifter_config: "configs/body/3d_kpt_sview_rgb_img/pose_lift/h36m/simplebaseline3d_h36m.py"
+pose_lifter_checkpoint: "~/.cache/torch/hub/checkpoints/simple3Dbaseline_h36m-f0ad73a4_20210419.pth"
+pose_detector_config: "configs/body/2d_kpt_sview_rgb_img/topdown_heatmap/coco/hrnet_w48_coco_256x192.py"
+pose_detector_checkpoint: "~/.cache/torch/hub/checkpoints/hrnet_w48_coco_256x192-b9e0b3ab_20200708.pth"
+# img_root: "h36m"
+img_root: "06"
+# json_file: "h36m/h36m_coco.json"
+camera_param_file: "h36m/cameras.pkl"
+only_second_stage: False
+rebase_keypoint_height: True
+show_ground_truth: False
+show: False
+out_img_root: "vis_results06"
+device: "cuda:0"
+kpt_thr: 0.3
+radius: 4
+thickness: 1
+det_cat_id: 1
+bbox_thr: 0.9

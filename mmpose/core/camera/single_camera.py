@@ -105,8 +105,7 @@ class SimpleCamera(SingleCameraBase):
             r2 = (_X_2d**2).sum(-1)
             radial = 1 + sum(ki * r2**(i + 1) for i, ki in enumerate(k[:3]))
             if k.size == 6:
-                radial /= 1 + sum(
-                    (ki * r2**(i + 1) for i, ki in enumerate(k[3:])))
+                radial /= 1 + sum((ki * r2**(i + 1) for i, ki in enumerate(k[3:])))
 
             tangential = 2 * (p[1] * _X[..., 0] + p[0] * _X[..., 1])
 
@@ -118,6 +117,5 @@ class SimpleCamera(SingleCameraBase):
         assert isinstance(X, np.ndarray)
         assert X.ndim >= 2 and X.shape[-1] == 3
         _X = X.copy()
-        _X[:, :2] = (X[:, :2] - self.param['c'].T) / self.param['f'].T * X[:,
-                                                                           [2]]
+        _X[:, :2] = (X[:, :2] - self.param['c'].T) / self.param['f'].T * X[:, [2]]
         return _X
